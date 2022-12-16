@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { client, urlFor } from '../../client';
 import AppWrap from '../../wrapper/AppWrap';
 import './Work.scss';
+import MotionWrap from '../../wrapper/MotionWrap';
 
 interface WorkProps {
   title: string;
@@ -126,4 +127,8 @@ const Work = () => {
   );
 };
 
-export default AppWrap(Work, 'work');
+export default AppWrap(
+  MotionWrap(Work, 'app__works'),
+  'work',
+  'app__primarybg'
+);

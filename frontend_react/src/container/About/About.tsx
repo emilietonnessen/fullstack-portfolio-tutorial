@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 import './About.scss';
-import { useEffect, useState } from 'react';
-import { urlFor, client } from '../../client';
 import AppWrap from '../../wrapper/AppWrap';
+import MotionWrap from '../../wrapper/MotionWrap';
+import { urlFor, client } from '../../client';
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
@@ -46,4 +47,8 @@ const About = () => {
   );
 };
 
-export default AppWrap(About, 'about');
+export default AppWrap(
+  MotionWrap(About, 'app__about'),
+  'about',
+  'app__whitebg'
+);
