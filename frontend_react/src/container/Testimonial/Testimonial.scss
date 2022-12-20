@@ -126,6 +126,7 @@
   flex-wrap: wrap;
   margin-top: 2rem;
   display: flex;
+  justify-content: center;
 
   div {
     width: 150px;
@@ -136,6 +137,11 @@
       height: auto;
       object-fit: cover;
       filter: grayscale(1);
+      -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      filter: grayscale(100%);
     }
 
     &:hover {

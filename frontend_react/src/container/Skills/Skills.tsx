@@ -65,42 +65,44 @@ const Skills = () => {
           ))}
         </motion.div>
         <motion.div className="app__skills-exp">
-          {experiences?.map((experience, index) => (
-            <motion.div
-              className="app__skills-exp-item"
-              key={`${experience.year}-${index}`}
-            >
-              <div className="app__skills-exp-year">
-                <p className="bold-text">{experience.year}</p>
-              </div>
+          {experiences
+            .sort((a, b) => Number(b.year) - Number(a.year))
+            ?.map((experience, index) => (
+              <motion.div
+                className="app__skills-exp-item"
+                key={`${experience.year}-${index}`}
+              >
+                <div className="app__skills-exp-year">
+                  <p className="bold-text">{experience.year}</p>
+                </div>
 
-              <motion.div className="app__skills-exp-works">
-                {experience.works?.map((work, index) => (
-                  <Fragment key={`${work.name}-${index}`}>
-                    <motion.div
-                      whileInView={{ opacity: [0, 1] }}
-                      transition={{ duration: 0.5 }}
-                      className="app__skills-exp-work"
-                      data-tip
-                      //data-for={work.name}
-                      id={`${work.company}-${index}`}
-                    >
-                      <h4 className="bold-text">{work.name}</h4>
-                      <p className="p-text">{work.company}</p>
-                    </motion.div>
-                    <Tooltip
-                      anchorId={`${work.company}-${index}`}
-                      // effect="solid"
-                      // arrowColor="#FFF"
-                      className="skills-tooltip"
-                      content={work.desc}
-                      place="top"
-                    />
-                  </Fragment>
-                ))}
+                <motion.div className="app__skills-exp-works">
+                  {experience.works?.map((work, index) => (
+                    <Fragment key={`${work.name}-${index}`}>
+                      <motion.div
+                        whileInView={{ opacity: [0, 1] }}
+                        transition={{ duration: 0.5 }}
+                        className="app__skills-exp-work"
+                        data-tip
+                        //data-for={work.name}
+                        id={`${work.company}-${index}`}
+                      >
+                        <h4 className="bold-text">{work.name}</h4>
+                        <p className="p-text">{work.company}</p>
+                      </motion.div>
+                      <Tooltip
+                        anchorId={`${work.company}-${index}`}
+                        // effect="solid"
+                        // arrowColor="#FFF"
+                        className="skills-tooltip"
+                        content={work.desc}
+                        place="top"
+                      />
+                    </Fragment>
+                  ))}
+                </motion.div>
               </motion.div>
-            </motion.div>
-          ))}
+            ))}
         </motion.div>
       </div>
     </>
